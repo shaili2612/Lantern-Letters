@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Lantern Letters</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="header-left">
+        <h1 class="title">Lantern Letters</h1>
+        <p id="dailyGreeting" class="subtitle"></p>
+    </div>
+    <div class="header-right">
+        <div class="streak-badge">
+            <span id="streakIcon">🔥</span> 
+            <span id="streakCount">0</span> Days
+        </div>
+    </div>
+</header>
+
+<main class="dashboard-grid">
+    <section class="card">
+        <h2>Gratitude Corner 🏮</h2>
+        <textarea id="gratitudeInput" placeholder="Three small things..."></textarea>
+        <button id="saveGratitude" style="width:100%">Log Gratitude</button>
+        <div id="gratitudeDisplay" style="margin-top:10px; font-style:italic;"></div>
+    </section>
+
+    <section class="card">
+        <h2>Daily Mood</h2>
+        <div class="mood-row">
+            <button class="moodBtn" data-mood="happy">😊</button>
+            <button class="moodBtn" data-mood="calm">🙂</button>
+            <button class="moodBtn" data-mood="stressed">😟</button>
+            <button class="moodBtn" data-mood="tired">😴</button>
+        </div>
+        <div style="height: 150px;"><canvas id="moodChart"></canvas></div>
+    </section>
+
+    <section class="card">
+        <h2>Study Tasks ✅</h2>
+        <input type="text" id="taskInput" placeholder="What to study?">
+        <input type="date" id="dateInput">
+        <button id="addTaskBtn" style="width:100%">Add Task</button>
+        <ul id="todayList"></ul>
+    </section>
+
+    <section class="card">
+        <h2>Focus Timer ⏱️</h2>
+        <div id="timer">25:00</div>
+        <div style="display:flex; gap:10px;">
+            <button id="startPom" style="flex:1">Start</button>
+            <button id="stopPom" style="flex:1; background:#eee;">Stop</button>
+        </div>
+        <select id="ambientSelect" style="margin-top:10px;">
+            <option value="none">Silence</option>
+            <option value="white">White Noise</option>
+            <option value="brown">Rain Noise</option>
+        </select>
+    </section>
+
+    <section class="card">
+        <h2>30-Day Study Recap 📊</h2>
+        <div style="height: 200px;"><canvas id="recapChart"></canvas></div>
+    </section>
+
+    <section class="card">
+        <h2>Letters from Family ✉️</h2>
+        <textarea id="familyText" placeholder="Write a message..."></textarea>
+        <input type="file" id="familyPhoto" accept="image/*">
+        <div style="display:flex; gap:10px; margin-top:10px;">
+            <button id="startRec" style="flex:1">🎤 Record</button>
+            <button id="stopRec" style="flex:1; display:none; background:#ff9b9b;">⏹ Stop</button>
+        </div>
+        <button id="saveFamily" style="width:100%; margin-top:10px;">Save Message</button>
+        <ul id="familyList"></ul>
+    </section>
+</main>
+
+<div id="lanternPopup" class="popup">
+    <div class="popup-box">
+        <h3>Glow Gently 🏮</h3>
+        <p id="overloadText"></p>
+        <button onclick="closePopup()">I'll prioritize</button>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
